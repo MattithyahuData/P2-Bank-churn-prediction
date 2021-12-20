@@ -26,6 +26,14 @@ Source: Kaggle | Webscraping AVG Rupees/GBP conversion data
 -------
 *   Conversion
 
+## Data Warehousing
+AAAAAAAAAAAAAAAAAAAAAAAAA
+
+*	Made a new column for company state 
+*	Added a column for if the job was at the company’s headquarters 
+*	Transformed founded date into age of company 
+
+
 
 ## Data Cleaning
 After I had sraped and downloaded all the data I needed, I needed to clean it up so that it was usable for the model and analysis. I made the following changes and created the following variables:
@@ -56,14 +64,6 @@ A company avoids customer churn by knowing its customers. One of the best ways t
 One of the metrics to keep track of customer churn is Retention Rate, an indication of to what degree the products satisfy a strong market demand, known as product-market fit.
 If a product-market fit is not satisfactory, a company will likely experience customers churning.
 A powerful tool to analyze and improve Retention Rate is Churn Prediction; a technique that helps to find out which customer is more likely to churn in the given period of time.
-
-
-## Data Warehousing
-AAAAAAAAAAAAAAAAAAAAAAAAA
-
-*	Made a new column for company state 
-*	Added a column for if the job was at the company’s headquarters 
-*	Transformed founded date into age of company 
 
 
 ## Data Visualisation
@@ -111,22 +111,18 @@ In this step, I built a flask API endpoint that was hosted on a local webserver 
 In this step, I built a flask API endpoint that was hosted on a local webserver by following along with the TDS tutorial in the reference section above. The API endpoint takes in a request with a list of values from a job listing and returns an estimated salary. 
 
 
-# Data Source Link: 
-[]()
+## Project Management (Agile | Scrum)
+* Resources used
+    * Jira
+    * Confluence
+    * Trello 
+
+## Questions and See more projects    
+
+* #### [See more projects here](https://mattithyahutech.co.uk/)
+* #### [Contact me here](mailto:theanalyticsolutions@gmail.com) 
 
 
-#### To see more projects CLICK [here](https://mattithyahudata.github.io/devportfolio/).
-# P2 Bank churn prediction
-
-* Goal: A manager at the bank is disturbed with more and more customers leaving their credit card services. They would really appreciate if one could predict for them who is gonna get churned so they can proactively go to the customer to provide them better services and turn customers' decisions in the opposite direction
 
 
-
-DATA: https://www.kaggle.com/kmalit/bank-customer-churn-prediction
-
-* Conclusion:  
-
-* BI Options for action:
-1. 
-2. 
 
