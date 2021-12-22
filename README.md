@@ -1,5 +1,5 @@
-# 🚘 Car Price Prediction: Project Overview 
-* End to end project reasearching the effects certain attributes have on the value of a car
+# 🏦 Bank Churn Analysis: Project Overview 
+* End to end project reasearching the effects certain attributes have on the churn of a bank customer and predicting those customers that may churn.
 * Optimized Linear, Lasso, and Random Forest Regressors using GridsearchCV to reach the best model. 
 * Built a client facing API using flask 
 
