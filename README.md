@@ -107,6 +107,8 @@ The Random Forest model far outperformed the other approaches on the test and va
 ## Deployment 
 In this step, I built a flask API endpoint that was hosted on a local webserver by following along with the TDS tutorial in the reference section above. The API endpoint takes in a request with a list of values from a job listing and returns an estimated salary. 
 
+Power BI Dashboard deployment 
+
 ## Evaluation 
 In this step, I built a flask API endpoint that was hosted on a local webserver by following along with the TDS tutorial in the reference section above. The API endpoint takes in a request with a list of values from a job listing and returns an estimated salary. 
 
