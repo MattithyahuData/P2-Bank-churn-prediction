@@ -1,28 +1,13 @@
-# 🏦 Bank Churn Analysis: Project Overview 
+# 🏦 Bank Churn Analysis: Project Overview  
 * End to end project reasearching the effects certain attributes have on the churn of a bank customer and predicting those customers that may churn.
 * Optimized Linear, Lasso, and Random Forest Regressors using GridsearchCV to reach the best model. 
-* Built a client facing API using flask API! 
-
-[View Code](Code/P2 Code.ipynb)
-
-## Resources Used
-**Python 3.8, SSIS, SQL Server, Power BI, PowerPoint, AWS** 
-
-[**Anaconda Packages:**](requirements.txt) **pandas, numpy, sklearn, matplotlib, seaborn, selenium, flask, json, pickle, lxml**   
-
-
-[Kaggle Data source link](https://www.kaggle.com/kmalit/bank-customer-churn-prediction) 
-
-# 🏋 BMI Calculator: Project Overview 
-* End to end project researching the effects of BMI and its distribution in gender classes
-* Optimised best performing Supervised Learning algorithm using GridsearchCV to obtain optimum performance
 * Built a client facing REST API using flask web framework
 * Deployed Model in AWS EC2 Instance  
 
-[View Deployed Model](http://ec2-18-168-206-39.eu-west-2.compute.amazonaws.com:8080/)
+[View Deployed Model in Power BI]()
 
 ## Resources Used
-**Python 3.8, SQL Server, Power BI, PowerPoint, WinSCP, PuTTY, Ubuntu, AWS EC2** 
+**Python 3.8, SQL Server, Power BI, PowerPoint** 
 
 [**Anaconda Packages:**](requirements.txt) **pandas, numpy, pandas_profiling, ipywidgets, sklearn, matplotlib, seaborn, sqlalchemy, pyodbc, kaggle, XGBOOST, selenium, flask, json, pickle, lxml**   
 
@@ -31,7 +16,7 @@ Data loaded using kaggle API <br>
 ```
 !kaggle datasets download -d yasserh/bmidataset -p ..\Data --unzip 
 ```
-[Data source link](https://www.kaggle.com/yasserh/bmidataset)
+[Data source link](https://www.kaggle.com/kmalit/bank-customer-churn-prediction)
 [Data](Data/bmi.csv)
 *  Rows: 500 | Columns: 4
     *   Gender  
