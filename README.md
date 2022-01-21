@@ -2,7 +2,7 @@
 * End to end project reasearching the effects certain attributes have on the churn of a bank customer and predicting those customers that may churn.
 * Optimized Linear, Lasso, and Random Forest Regressors using GridsearchCV to reach the best model. 
 * Built a client facing REST API using flask web framework
-* Deployed Model in AWS EC2 Instance  
+* Deployed Model in Power BI for Business Intelligence analysis of future customer behaviour 
 
 [View Deployed Model in Power BI]()
 
@@ -52,17 +52,17 @@ I looked at the distributions of the data and the value counts for the various c
 *   I created a correlation matrix to show the relationship between height, weight, and BMI
 *   I visualised the distribution of bmi class between genders and found that more men are severely obese than woman generally. 
 
-## [Feature Engineering](Code/P11_Code.ipynb)
-I transformed the categorical variable(s) 'gender' into dummy variables. I also split the data into train and tests sets with a test size of 20%.
-*   One Hot encoding
-*   No scaling, standardisation or normalisation used as the data is well distributed and will not affect the outcome of the model. 
-
-<!-- ## Business Intelligence
+## Business Intelligence
 AAAAAAAAAAAAAAAAAAAAAAAAA
 
 *   Made a new column for company state 
 *   Added a column for if the job was at the company’s headquarters 
-*   Transformed founded date into age of company  -->
+*   Transformed founded date into age of company 
+
+## [Feature Engineering](Code/P11_Code.ipynb)
+I transformed the categorical variable(s) 'gender' into dummy variables. I also split the data into train and tests sets with a test size of 20%.
+*   One Hot encoding
+*   No scaling, standardisation or normalisation used as the data is well distributed and will not affect the outcome of the model. 
 
 ## [ML/DL Model Building](Code/P11_Code.ipynb)
 
