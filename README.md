@@ -7,7 +7,7 @@
 [View Deployed Model in Power BI]()
 
 ## Resources Used
-**Python 3.8, SQL Server, Power BI, PowerPoint** 
+**Python 3.8, SQL Server, Power BI** 
 
 [**Anaconda Packages:**](requirements.txt) **pandas, numpy, pandas_profiling, ipywidgets, sklearn, matplotlib, seaborn, sqlalchemy, pyodbc, kaggle, XGBOOST, selenium, flask, json, pickle, lxml**   
 
