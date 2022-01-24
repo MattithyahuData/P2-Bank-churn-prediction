@@ -3,7 +3,7 @@
 * Optimized Linear, Lasso, and Random Forest Regressors using GridsearchCV to reach the best model. 
 * Built a client facing REST API using flask web framework
 * Deployed Model in Power BI for Business Intelligence analysis of future customer behaviour 
-THIS NEEDS TO BE FINISHED 
+THIS NEEDS TO BE FINISHE!!!! 
 
 [View Deployed Model in Power BI]()
 
