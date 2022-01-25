@@ -1,69 +1,80 @@
 # 🏦 Bank Churn Analysis: Project Overview  
-* End to end project reasearching the effects certain attributes have on the churn of a bank customer and predicting those customers that may churn.
-* Optimized Linear, Lasso, and Random Forest Regressors using GridsearchCV to reach the best model. 
-* Built a client facing REST API using flask web framework
-* Deployed Model in Power BI for Business Intelligence analysis of future customer behaviour 
-THIS NEEDS TO BE FINISHE!!!! 
+* End to end project reasearching the effects attributes have on the churn of a bank customer and predicting those customers that may churn.
+* Optimized KNN, SVC, Decision Tree, and Random Forest Regressors using GridsearchCV to reach the best model. 
+* Built a stakeholder facing visual deployment of model to predict churn of new customers 
+* Deployed Model in Power BI for Business Intelligence analysis 
 
-[View Deployed Model in Power BI]()
 
+[View Deployed Model in Power BI](https://app.powerbi.com/view?r=eyJrIjoiNDExYjQ0OTUtNWI5MC00OTQ5LWFlYmUtYjNkMzE1YzE2NmE0IiwidCI6IjYyZWE3MDM0LWI2ZGUtNDllZS1iZTE1LWNhZThlOWFiYzdjNiJ9&pageName=ReportSection)
+         
 ## Resources Used
 **Python 3.8, SQL Server, Power BI** 
 
-[**Anaconda Packages:**](requirements.txt) **pandas, numpy, pandas_profiling, ipywidgets, sklearn, matplotlib, seaborn, sqlalchemy, pyodbc, kaggle, XGBOOST, selenium, flask, json, pickle, lxml**   
+[**Anaconda Packages:**](requirements.txt) **pandas, numpy, pandas_profiling, ipywidgets, sklearn, matplotlib, seaborn, sqlalchemy, pyodbc, kaggle, pickle, lxml**   
 
-## [Data Collection](Code/P11_Code.ipynb)
+## [Data Collection](Code/P2_Code.ipynb)
 Data loaded using kaggle API <br>
 ```
-!kaggle datasets download -d yasserh/bmidataset -p ..\Data --unzip 
+!kaggle datasets download -d kmalit/bank-customer-churn-prediction -p ..\Data --unzip 
 ```
 [Data source link](https://www.kaggle.com/kmalit/bank-customer-churn-prediction)
-[Data](Data/bmi.csv)
-*  Rows: 500 | Columns: 4
-    *   Gender  
-    *   Height  
-    *   Weight  
-    *   Index
+[Data](Data/Churn_Modelling.csv)
+*  Rows: 10000 | Columns: 14
+    *   RowNumber
+    *   CustomerId  
+    *   Surname 
+    *   CreditScore
+    *   Geography
+    *   Gender
+    *   Age
+    *   Tenure
+    *   Balance
+    *   NumOfProducts
+    *   HasCrCard
+    *   IsActiveMember
+    *   EstimatedSalary
+    *   Exited
 
-## [Data Pre-processing](Code/P11_Code.ipynb)
+
+## [Data Pre-processing](Code/P2_Code.ipynb)
 After I had all the data I needed, I needed to check it was ready for exploration and later modelling. I made the following changes and created the following variables:   
 *   General NULL and data validity checks  
-*   Added a new column quantifying BMI as the United Kingdom classify it.
-*   Dropped old Index column 
-*   [NHS Obesity Definition](https://www.nhs.uk/conditions/obesity/#:~:text=18.5%20to%2024.9%20means%20you,means%20you're%20severely%20obese)
 
-## [Data Warehousing](Code/P11_Code.ipynb)
+
+## [Data Warehousing](Code/P2_Code.ipynb)
 I warehouse all data in a SQL Server instance for later use and reference.
 
 *   ETL in python to SQL Server Database.
 *   Formatted column headers to SQL compatibility.  
 
-## [Exploratory data analysis](Code/P11_Code.ipynb) 
-I looked at the distributions of the data and the value counts for the various categorical variables. Below are a few highlights from the analysis.
-*   I looked at the distribution of BMI by class and . There were no outliers in the data. 
-<img src="images/bmi_distribution.png" />
-<img src="images/bmi_classdistribution.png" />
-<img src="images/bmi_genderdistribution.png" />
+## [Exploratory data analysis](Code/P2_Code.ipynb) 
+I looked at the distributions of the data and the value counts for the various categorical variables that would be fed into the model. Below are a few highlights from the analysis.
+*   79.63% of customers have churned - Distrubution of features and their effects on churning - Some features have outliers, visualising this allows for greater clarifty on the extent. 
+<img src="images/Churn_barchart_distrib.png" />
+<img src="images/independentfeatures_distrib.png" />
+<img src="images/boxplots.png" />
 
 *   I looked at the correlation the features have
-<img src="images/bmi_correlation.png" />
+<img src="images/churn_correlation.png" />
 
-## [Data Visualisation & Analytics](https://app.powerbi.com/view?r=eyJrIjoiMjJkN2VjOTctODM2ZC00YWY1LThlNTctN2JjYjQxNzk0NTUwIiwidCI6IjYyZWE3MDM0LWI2ZGUtNDllZS1iZTE1LWNhZThlOWFiYzdjNiJ9&pageName=ReportSection)
-[View Interactive Dashboard](https://app.powerbi.com/view?r=eyJrIjoiMjJkN2VjOTctODM2ZC00YWY1LThlNTctN2JjYjQxNzk0NTUwIiwidCI6IjYyZWE3MDM0LWI2ZGUtNDllZS1iZTE1LWNhZThlOWFiYzdjNiJ9)
-*   I created a correlation matrix to show the relationship between height, weight, and BMI
-*   I visualised the distribution of bmi class between genders and found that more men are severely obese than woman generally. 
+## [Data Visualisation & Analytics](https://app.powerbi.com/view?r=eyJrIjoiNDExYjQ0OTUtNWI5MC00OTQ5LWFlYmUtYjNkMzE1YzE2NmE0IiwidCI6IjYyZWE3MDM0LWI2ZGUtNDllZS1iZTE1LWNhZThlOWFiYzdjNiJ9&pageName=ReportSection)
+[View Interactive Dashboard](https://app.powerbi.com/view?r=eyJrIjoiNDExYjQ0OTUtNWI5MC00OTQ5LWFlYmUtYjNkMzE1YzE2NmE0IiwidCI6IjYyZWE3MDM0LWI2ZGUtNDllZS1iZTE1LWNhZThlOWFiYzdjNiJ9&pageName=ReportSection)
+*   I created an interactive dashboard to deploy the machine learning model to benefit the business.
+*   I visualised various key features and hihglighted their overall correlation to a customers churn. 
 
 ## Business Intelligence
-AAAAAAAAAAAAAAAAAAAAAAAAA
+On Page 2 of the interactive dashboard I have provided the stake holders with the new customer names and the customers that are likely to churn due to their characteristics.
 
-*   Made a new column for company state 
-*   Added a column for if the job was at the company’s headquarters 
-*   Transformed founded date into age of company 
+*   These customers can be offered subsidised deals and incentives to keep them on
+*   Greater engagement with customers could keep some customers on board 
+*   Providing quality customer service can also provide customers with long term value and appreciation for the business
+*   The complaints team should pay particular attention to complaints from customers who are predicted to churn.
+- 96% of unhappy customers dont complain  and 91% of those will simply leave and never come back?
 
-## [Feature Engineering](Code/P11_Code.ipynb)
-I transformed the categorical variable(s) 'gender' into dummy variables. I also split the data into train and tests sets with a test size of 20%.
-*   One Hot encoding
-*   No scaling, standardisation or normalisation used as the data is well distributed and will not affect the outcome of the model. 
+## [Feature Engineering](Code/P2_Code.ipynb)    ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> LEFT OFFFF 
+I transformed the categorical variable(s) 'geography' and 'gender' into dummy variables. I also split the data into train and tests sets with a test size of 20%.
+*   One Hot encoding to encode values
+*   Using RobustScaler to scale  
 
 ## [ML/DL Model Building](Code/P11_Code.ipynb)
 
@@ -91,7 +102,7 @@ Using the best parameters, I improved the model accuracy by **1%**
 
 *   **Quadratic Discriminant Analysis** : Accuracy = 97% | MSE = 0.03 | RMSE = 0.17 (2dp)
 
-## [Deployment](http://ec2-18-168-206-39.eu-west-2.compute.amazonaws.com:8080/)
+## [Deployment](https://app.powerbi.com/view?r=eyJrIjoiNDExYjQ0OTUtNWI5MC00OTQ5LWFlYmUtYjNkMzE1YzE2NmE0IiwidCI6IjYyZWE3MDM0LWI2ZGUtNDllZS1iZTE1LWNhZThlOWFiYzdjNiJ9&pageName=ReportSection)
 I built a flask REST API endpoint that was hosted on a local webserver before AWS EC2 deployment. The API endpoint takes in a request value; height and weight and returns predicted BMI index. I also optimised and formatted the frontend using HTML and CSS. 
 
 ## [Model Evaluation](Code/P11_Code.ipynb)
