@@ -8,7 +8,7 @@
 [View Deployed Model in Power BI](https://app.powerbi.com/view?r=eyJrIjoiNDExYjQ0OTUtNWI5MC00OTQ5LWFlYmUtYjNkMzE1YzE2NmE0IiwidCI6IjYyZWE3MDM0LWI2ZGUtNDllZS1iZTE1LWNhZThlOWFiYzdjNiJ9&pageName=ReportSection)
          
 ## Resources Used
-**Python 3.8, SQL Server, Power BI** 
+**Python 3, SQL Server, Power BI** 
 
 [**Anaconda Packages:**](requirements.txt) **pandas, numpy, pandas_profiling, ipywidgets, sklearn, matplotlib, seaborn, sqlalchemy, pyodbc, kaggle, pickle, lxml**   
 
@@ -98,7 +98,7 @@ The Random Forest Classifier model outperformed the other approaches on the test
 In this step, I used GridsearchCV to find the best parameters to optimise the performance of the model.
 However in this instance the performance of the model was reduced, so I stuck with the intial paramaters. 
 
-*   **Random Forest Classifier** : Accuracy = 86.8% | MSE = 0.03 | RMSE = 0.17 (2dp)
+*   **Random Forest Classifier** : Accuracy = 86.8% | MSE = 0.1295 | RMSE = 0.36 (2dp)
 
 ## [Deployment](https://app.powerbi.com/view?r=eyJrIjoiNDExYjQ0OTUtNWI5MC00OTQ5LWFlYmUtYjNkMzE1YzE2NmE0IiwidCI6IjYyZWE3MDM0LWI2ZGUtNDllZS1iZTE1LWNhZThlOWFiYzdjNiJ9&pageName=ReportSection)
 I deployed this model in Microsoft Power BI for business intellignece use. [View visualisation code prep](Code/P2_Vis_prep.ipynb)
@@ -111,7 +111,7 @@ I deployed this model in Microsoft Power BI for business intellignece use. [View
 **Random Forest Classifier**
 <img src="images/Confusionmatrixrf.png" />
 
-*   Plotted a ROC curve to show the trade-off between sensitivity (or TPR) and specificity (1 – FPR). Classifiers that give curves closer to the top-left corner indicate a better performance.
+*   Plotted a ROC curve to show the trade-off between sensitivity (or TPR) and specificity (1 – FPR). Classifiers that give curves closer to the top-left corner indicate a better performance. Here we see how the Random Forest Classifier outperforms the SVC.
 <img src="images/ROC_Curve.png" />
 
 *   Using 'feature_importances_' I found the age of a customer has the biggest weight in how likely they are to churn. 
