@@ -1,6 +1,6 @@
 # 🏦 Bank Churn Analysis: Project Overview  
 * End to end project reasearching the effects attributes have on the churn of a bank customer and predicting those customers that may churn.
-* Optimized KNN, SVC, Decision Tree, and Random Forest Regressors using GridsearchCV to reach the best model. 
+* Optimized Logistic Regression, KNN, SVC, Decision Tree, and Random Forest Regressors using GridsearchCV to reach the best model. 
 * Built a stakeholder facing visual deployment of model to predict churn of new customers 
 * Deployed Model in Power BI for Business Intelligence analysis 
 
@@ -71,52 +71,60 @@ On Page 2 of the interactive dashboard I have provided the stake holders with th
 *   The complaints team should pay particular attention to complaints from customers who are predicted to churn.
 - 96% of unhappy customers dont complain  and 91% of those will simply leave and never come back?
 
-## [Feature Engineering](Code/P2_Code.ipynb)    ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> LEFT OFFFF 
+## [Feature Engineering](Code/P2_Code.ipynb)   
 I transformed the categorical variable(s) 'geography' and 'gender' into dummy variables. I also split the data into train and tests sets with a test size of 20%.
 *   One Hot encoding to encode values
 *   Using RobustScaler to scale  
 
-## [ML/DL Model Building](Code/P11_Code.ipynb)
+## [ML/DL Model Building](Code/P2_Code.ipynb)
 
-I tried eight different models and evaluated them using initially using accuracy_score and then MSE/RMSE. I chose MSE and RMSE because it is sensitive to outliers, punishes larger errors and is relatively easy to interpret.   
+I tried five different models and evaluated them using initially using accuracy_score and then MSE/RMSE. I chose MSE and RMSE because it is sensitive to outliers, punishes larger errors and is relatively easy to interpret.   
 
-I tried eight different models:
+I tried five different models:
+*   **Logistic Regression**
 *   **KN Neighbors Classifier** 
-*   **Linear SVC** 
+*   **Support Vector Classifier** 
 *   **Decision Tree Classifier** 
 *   **Random Forest Classifier**
-*   **XGB Classifier** 
-*   **AdaBoost Classifier**  
-*   **Gaussian NB** 
-*   **Quadratic Discriminant Analysis** 
+
 
 <img src="images/Crossvalidation.png" />
 
-## [Model performance](Code/P11_Code.ipynb)
-The Quadratic Discriminant Analysis model outperformed the other approaches on the test and validation sets. 
-*   **Quadratic Discriminant Analysis** : Accuracy = 96% 
+## [Model performance](Code/P2_Code.ipynb)
+The Random Forest Classifier model outperformed the other approaches on the test and validation sets. 
+*   **Random Forest Classifier** : Accuracy = 86.8% 
 
-## [Model Optimisation and Evaluation](Code/P11_Code.ipynb)
+## [Model Optimisation and Evaluation](Code/P2_Code.ipynb)
 In this step, I used GridsearchCV to find the best parameters to optimise the performance of the model.
-Using the best parameters, I improved the model accuracy by **1%**
+However in this instance the performance of the model was reduced, so I stuck with the intial paramaters. 
 
-*   **Quadratic Discriminant Analysis** : Accuracy = 97% | MSE = 0.03 | RMSE = 0.17 (2dp)
+*   **Random Forest Classifier** : Accuracy = 86.8% | MSE = 0.03 | RMSE = 0.17 (2dp)
 
 ## [Deployment](https://app.powerbi.com/view?r=eyJrIjoiNDExYjQ0OTUtNWI5MC00OTQ5LWFlYmUtYjNkMzE1YzE2NmE0IiwidCI6IjYyZWE3MDM0LWI2ZGUtNDllZS1iZTE1LWNhZThlOWFiYzdjNiJ9&pageName=ReportSection)
-I built a flask REST API endpoint that was hosted on a local webserver before AWS EC2 deployment. The API endpoint takes in a request value; height and weight and returns predicted BMI index. I also optimised and formatted the frontend using HTML and CSS. 
-
-## [Model Evaluation](Code/P11_Code.ipynb)
-*   A confusion matrix showing the accuracy score of 97.25% achieved by the model. 
-<img src="images/Confusionmatrix.png" />
+I deployed this model in Microsoft Power BI for business intellignece use. [View visualisation code prep](Code/P2_Vis_prep.ipynb)
+*   I exported the model as a .pkl file and applied it to the unseen data set to get churn predictions and probability predictions.
+*   I visualised this in Power BI and using conditional formatting to highlight those new customer sthat are more likely to curn based on the models prediction. 
 
 
-## [Project Evaluation](Presentation/P11Presentation.pptx) 
+## [Model Evaluation](Code/P2_Code.ipynb)
+*   A confusion matrix showing the accuracy score of 86.8% achieved by the model. 
+**Random Forest Classifier**
+<img src="images/Confusionmatrixrf.png" />
+
+*   Plotted a ROC curve to show the trade-off between sensitivity (or TPR) and specificity (1 – FPR). Classifiers that give curves closer to the top-left corner indicate a better performance.
+<img src="images/ROC_Curve.png" />
+
+*   Using 'feature_importances_' I found the age of a customer has the biggest weight in how likely they are to churn. 
+
+
+## Project Evaluation
 *   WWW
     *   The end-to-end process
     *   Deployment and sharing of work 
+    *   Communicating business intelligence analysis from data science work
 *   EBI 
     *   Better project management and planning would have made this project faster
-    *   Explore GitHub pages deployment through AWS 
+
 
 ## [Project Management (Agile | Scrum)](https://www.atlassian.com/software/jira)
 * Resources used
