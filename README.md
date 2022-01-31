@@ -1,5 +1,5 @@
 # 🏦 Bank Churn Analysis: Project Overview  
-* End to end project reasearching the effects attributes have on the churn of a bank customer and predicting those customers that may churn.
+* End to end project reasearching the effects customer attributes have on the churn of a bank customer and predicting those customers that may churn.
 * Optimized Logistic Regression, KNN, SVC, Decision Tree, and Random Forest Regressors using GridsearchCV to reach the best model. 
 * Built a stakeholder facing visual deployment of model to predict churn of new customers 
 * Deployed Model in Power BI for Business Intelligence analysis 
@@ -49,7 +49,7 @@ I warehouse all data in a SQL Server instance for later use and reference.
 
 ## [Exploratory data analysis](Code/P2_Code.ipynb) 
 I looked at the distributions of the data and the value counts for the various categorical variables that would be fed into the model. Below are a few highlights from the analysis.
-*   79.63% of customers have churned - Distrubution of features and their effects on churning - Some features have outliers, visualising this allows for greater clarifty on the extent. 
+*   20.37% of customers have churned - Distrubution of features and their effects on churning - Some features have outliers, visualising this allows for greater clarifty on the extent. 
 <img src="images/Churn_barchart_distrib.png" />
 <img src="images/independentfeatures_distrib.png" />
 <img src="images/boxplots.png" />
