@@ -132,10 +132,10 @@ I deployed this model in Microsoft Power BI for business intellignece use. [View
     * Confluence
     * Trello 
 
-## Questions and See more projects    
-
-* ### [See more projects here](https://github.com/MattithyahuData?tab=repositories)
-* ### [Contact me here](mailto:theanalyticsolutions@gmail.com) 
+## Questions | Contact me 
+For questions, feedback, and contribution requests contact me
+* ### [Click here to email me](mailto:contactmattithyahu@gmail.com) 
+* ### [See more projects here](https://mattithyahudata.github.io/)
 
 
 
