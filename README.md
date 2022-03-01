@@ -1,16 +1,36 @@
 # 🏦 Bank Churn Analysis: Project Overview  
 * End to end project reasearching the effects customer attributes have on the churn of a bank customer and predicting those customers that may churn.
-* Optimized Logistic Regression, KNN, SVC, Decision Tree, and Random Forest Regressors using GridsearchCV to reach the best model. 
+* Optimised Logistic Regression, KNN, SVC, Decision Tree, and Random Forest Classifiers using GridsearchCV to reach the best model. 
 * Built a stakeholder facing visual deployment of model to predict churn of new customers 
 * Deployed Model in Power BI for Business Intelligence analysis 
+
+
+## Table of Contents 
+[Resources](#resources)<br>
+[Data Collection](#DataCollection)<br>
+[Data Pre-processing](#DataPre-processing)<br>
+[Data Warehousing](#DataWarehousing)<br>
+[Exploratory data analysis](#EDA)<br>
+[Feature Engineering](#FeatEng)<br>
+[ML/DL Model Building](#ModelBuild)<br>
+[Model Evaluation](#ModelEval)<br>
+[Project Management (Agile | Scrum)](#Prjmanage)<br>
+[Project Evaluation](#PrjEval)<br>
+[Looking Ahead](#Lookahead)<br>
+[Questions | Contact me ](#Lookahead)<br>
 
 
 [View Deployed Model in Power BI](https://app.powerbi.com/view?r=eyJrIjoiNDExYjQ0OTUtNWI5MC00OTQ5LWFlYmUtYjNkMzE1YzE2NmE0IiwidCI6IjYyZWE3MDM0LWI2ZGUtNDllZS1iZTE1LWNhZThlOWFiYzdjNiJ9&pageName=ReportSection)
          
 ## Resources Used
-**Python 3, SQL Server, Power BI** 
+**Python 3, PostgreSQL, Power BI** 
 
-[**Anaconda Packages:**](requirements.txt) **pandas, numpy, pandas_profiling, ipywidgets, sklearn, matplotlib, seaborn, sqlalchemy, pyodbc, kaggle, pickle, lxml**   
+[**Anaconda Packages:**](requirements.txt) **pandas numpy pandas_profiling ipywidgets sklearn matplotlib seaborn sqlalchemy kaggle psycopg2 ipykernel** <br><br>
+Powershell command for installing anaconda packages used for this project  
+```powershell
+pip install pandas numpy pandas_profiling ipywidgets sklearn matplotlib seaborn sqlalchemy kaggle psycopg2 ipykernel
+```
+<a name="DataCollection"></a>  
 
 ## [Data Collection](Code/P2_Code.ipynb)
 Data loaded using kaggle API <br>
