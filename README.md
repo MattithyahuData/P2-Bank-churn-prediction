@@ -139,9 +139,12 @@ sns.set_palette(sns.color_palette(colors))
 ```
 <img src="images/Churn_barchart_distrib.png" />
 <img src="images/independentfeatures_distrib.png" />
+
+*   The box plots show those features with outliers. Those features are 'creditscore', 'age', 'tenure', 'balance', 'numofproducts', 'estimatedsalary'. 
+*   Becasue of the outliers the features will need to be scaled before modelling. 
 <img src="images/boxplots.png" />
 
-*   I looked at the correlation the features have
+*   The features are very correlated generally. 
 <img src="images/churn_correlation.png" />
 
 <a name="Dataviz"></a> 
@@ -150,6 +153,8 @@ sns.set_palette(sns.color_palette(colors))
 [View Interactive Dashboard](https://app.powerbi.com/view?r=eyJrIjoiNDExYjQ0OTUtNWI5MC00OTQ5LWFlYmUtYjNkMzE1YzE2NmE0IiwidCI6IjYyZWE3MDM0LWI2ZGUtNDllZS1iZTE1LWNhZThlOWFiYzdjNiJ9&pageName=ReportSection)
 *   I created an interactive dashboard to deploy the machine learning model to benefit the business.
 *   I visualised various key features and hihglighted their overall correlation to a customers churn. 
+
+<iframe title="P2Dashboard" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiNDExYjQ0OTUtNWI5MC00OTQ5LWFlYmUtYjNkMzE1YzE2NmE0IiwidCI6IjYyZWE3MDM0LWI2ZGUtNDllZS1iZTE1LWNhZThlOWFiYzdjNiJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
 
 <a name="Busintelli"></a>  
 
@@ -165,9 +170,30 @@ On Page 2 of the interactive dashboard I have provided the stake holders with th
 <a name="FeatEng"></a>  
 
 ## [Feature Engineering](Code/P2_Code.ipynb)   
-I transformed the categorical variable(s) 'geography' and 'gender' into dummy variables. I also split the data into train and tests sets with a test size of 20%.
+I transformed the categorical variable(s) 'geography' and 'gender' into dummy variables. I also split the data into train and tests sets with a test size of 20%. Shuffling the data is important for randomness as the data can come in clusters of outcome values which would affect the output. Stratifying is used so y_test can reflect y_train.Resulting in a more realistic simulation of how the model is going to perform on new data. 
 *   One Hot encoding to encode values
 *   Using RobustScaler to scale  
+
+```python
+# One Hot encoding for remaining categorical field 
+data = pd.get_dummies(data, drop_first = False)
+data.head()
+
+# Defining fields that need to be scaled in a list 
+scale_vars = ['creditscore', 'age', 'tenure', 'balance', 'numofproducts', 'estimatedsalary' ]
+
+# Robust scaler to address outliers 
+transformer = RobustScaler().fit(data[scale_vars])
+data[scale_vars] = transformer.transform(data[scale_vars])
+
+# Using train test split to split train and test data 
+X_train, X_test, y_train, y_test = train_test_split(X, y,  test_size=0.20, random_state=23, shuffle=True, stratify=y)
+
+# Viewing shape of train / test data
+print(X_train.shape)
+print(X_test.shape)
+
+```
 
 <a name="ModelBuild"></a> 
 
