@@ -156,6 +156,15 @@ sns.set_palette(sns.color_palette(colors))
 
 <iframe title="P2Dashboard" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiNDExYjQ0OTUtNWI5MC00OTQ5LWFlYmUtYjNkMzE1YzE2NmE0IiwidCI6IjYyZWE3MDM0LWI2ZGUtNDllZS1iZTE1LWNhZThlOWFiYzdjNiJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
 
+<div>
+  <iframe id="P2Dashboard"
+      title="P2Dashboard"
+      width="600"
+      height="373.5"
+      src="https://app.powerbi.com/view?r=eyJrIjoiNDExYjQ0OTUtNWI5MC00OTQ5LWFlYmUtYjNkMzE1YzE2NmE0IiwidCI6IjYyZWE3MDM0LWI2ZGUtNDllZS1iZTE1LWNhZThlOWFiYzdjNiJ9&pageName=ReportSection">
+  </iframe>
+</div>
+
 <a name="Busintelli"></a>  
 
 ## Business Intelligence
