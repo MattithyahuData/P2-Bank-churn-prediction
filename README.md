@@ -12,19 +12,19 @@
 *   [Data Pre-processing](#DataPre-processing)<br>
 *   [Data Warehousing](#DataWarehousing)<br>
 *   [Exploratory data analysis](#EDA)<br>
-[Data Visualisation & Analytics](#Dataviz)<br>
-[Business Intelligence](#Busintelli)<br>
-[Feature Engineering](#FeatEng)<br>
-[ML/DL Model Building](#ModelBuild)<br>
-[Model performance](#ModelPerf)<br>
-[Model Optimisation](#ModelOpt)<br>
-[Model Evaluation](#ModelEval)<br>
-[Model Productionisation](#ModelProd)<br>
-[Deployment](#ModelDeploy)<br>
-[Project Management (Agile | Scrum)](#Prjmanage)<br>
-[Project Evaluation](#PrjEval)<br>
-[Looking Ahead](#Lookahead)<br>
-[Questions | Contact me ](#Questions)<br>
+*   [Data Visualisation & Analytics](#Dataviz)<br>
+*   [Business Intelligence](#Busintelli)<br>
+*   [Feature Engineering](#FeatEng)<br>
+*   [ML/DL Model Building](#ModelBuild)<br>
+*   [Model performance](#ModelPerf)<br>
+*   [Model Optimisation](#ModelOpt)<br>
+*   [Model Evaluation](#ModelEval)<br>
+*   [Model Productionisation](#ModelProd)<br>
+*   [Deployment](#ModelDeploy)<br>
+*   [Project Management (Agile | Scrum)](#Prjmanage)<br>
+*   [Project Evaluation](#PrjEval)<br>
+*   [Looking Ahead](#Lookahead)<br>
+*   [Questions | Contact me ](#Questions)<br>
 
          
 ## Resources Used
