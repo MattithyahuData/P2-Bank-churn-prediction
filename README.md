@@ -154,16 +154,11 @@ sns.set_palette(sns.color_palette(colors))
 *   I created an interactive dashboard to deploy the machine learning model to benefit the business.
 *   I visualised various key features and hihglighted their overall correlation to a customers churn. 
 
-<iframe title="P2Dashboard" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiNDExYjQ0OTUtNWI5MC00OTQ5LWFlYmUtYjNkMzE1YzE2NmE0IiwidCI6IjYyZWE3MDM0LWI2ZGUtNDllZS1iZTE1LWNhZThlOWFiYzdjNiJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
 
-<div>
-  <iframe id="P2Dashboard"
-      title="P2Dashboard"
-      width="600"
-      height="373.5"
-      src="https://app.powerbi.com/view?r=eyJrIjoiNDExYjQ0OTUtNWI5MC00OTQ5LWFlYmUtYjNkMzE1YzE2NmE0IiwidCI6IjYyZWE3MDM0LWI2ZGUtNDllZS1iZTE1LWNhZThlOWFiYzdjNiJ9&pageName=ReportSection">
-  </iframe>
-</div>
+<!-- Dashboard  -->
+
+<!-- <iframe title="P2Dashboard" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiNDExYjQ0OTUtNWI5MC00OTQ5LWFlYmUtYjNkMzE1YzE2NmE0IiwidCI6IjYyZWE3MDM0LWI2ZGUtNDllZS1iZTE1LWNhZThlOWFiYzdjNiJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe> -->
+
 
 <a name="Busintelli"></a>  
 
@@ -217,6 +212,43 @@ I tried five different models:
 *   **Decision Tree Classifier** 
 *   **Random Forest Classifier**
 
+*   I put each classifier/model above in a list to iterate through to output accuracy scores.
+```python
+# Preparing algorithms in a list
+random_state = 23
+classifiers = [
+    LogisticRegression(),
+    KNeighborsClassifier(n_neighbors = 5),
+    SVC(gamma='auto'),
+    DecisionTreeClassifier(criterion = 'gini', max_depth = 3),
+    RandomForestClassifier(max_features = 'sqrt', n_jobs = 1, verbose = 1)]
+```
+*   Cross validation used to get range of accuracy results when randomising the formation of the training datasets 
+*    To cater for imbalanced class distributions in classifications use cases StratifiedKFold is used to ensure the test set reflects the distribution of the train set.
+This is similar to "stratify=y" in the train_test_split call
+
+```python
+# Cross validate model with Kfold stratified cross validation
+kfold = StratifiedKFold(n_splits=5)
+
+# Modeling step Test differents algorithms 
+cv_results = []
+for classifier in classifiers :
+    cv_results.append(cross_val_score(classifier, X_train, y = y_train, scoring = "accuracy", cv = kfold, n_jobs=4))
+
+cv_means = []
+cv_std = []
+for cv_result in cv_results:
+    cv_means.append(cv_result.mean())
+    cv_std.append(cv_result.std())
+
+cv_res = pd.DataFrame({"CrossValMeans":cv_means,"CrossValerrors": cv_std,"Algorithm":["LogisticRegression","KNeighborsClassifier","SVC","DecisionTreeClassifier","RandomForestClassifier"]})
+
+g = sns.barplot("CrossValMeans","Algorithm",data = cv_res, palette="Set3",orient = "h",**{'xerr':cv_std})
+g.set_xlabel("Mean Accuracy")
+g = g.set_title("Cross validation scores")
+```
+
 
 <img src="images/Crossvalidation.png" />
 
@@ -233,6 +265,36 @@ In this step, I used GridsearchCV to find the best parameters to optimise the pe
 However in this instance the performance of the model was reduced, so I stuck with the intial paramaters. 
 
 *   **Random Forest Classifier** : Accuracy = 86.8% | MSE = 0.1295 | RMSE = 0.36 (2dp)
+*   Hyperparameter tuning is effective in finding the best parameters to produce the highest model accuracy. 
+*   I gave a large range of values to test by using a great feature from the numpy library. ("np.linspace)
+
+```python
+# Using linspace to trial array of values in GridSearchCV parameters 
+maxdepth = np.linspace(80, 110, 2,dtype=int)
+maxfeatures = np.linspace(2,4, 2,dtype=int)
+minsampleaf = np.linspace(2, 5, 2,dtype=int)
+minsampsplit = np.linspace(6,12, 2,dtype=int)
+nestimators = np.linspace(100,1000, 3,dtype=int)
+
+# Defining parameters for GridSearchCV
+params = {
+    'bootstrap': [True],
+    'max_depth': maxdepth,
+    'max_features': maxfeatures,
+    'min_samples_leaf': minsampleaf,
+    'min_samples_split': minsampsplit,
+    'n_estimators': nestimators
+}
+
+# Initialising algorithm 
+rf = RandomForestClassifier()
+
+# Outputting best param with GridDearch
+rf_best = GridSearchCV(rf,params, cv = 3, n_jobs = 1, verbose = 1)
+
+# Fitting best paramters to X and y training
+rf_best.fit(X_train,y_train)
+```
 
 <a name="ModelEval"></a> 
 
@@ -248,12 +310,29 @@ However in this instance the performance of the model was reduced, so I stuck wi
 
 <a name="ModelProd"></a> 
 
-## [Model Productionisation](Code/P7_Code.ipynb)
+## [Model Productionisation](Code/P2_Code.ipynb)
 *   I used the pickle library to export the model. 
 ```python
 # Dump model into pickle file
 pickle.dump(model1, open('.././svc_diabetes.pkl', 'wb'))
 ```  
+
+*   I then imported the model into a seperate notebook to apply it to an 'unseen' dataset to find the predictions and the probability of those predictions. 
+*   String fields created for deployment readability aspect. 
+```python
+# Predicting based on orginal data 
+pred_rf = model.predict(data.values)
+pred_prob_rf = model.predict_proba(data.values)
+
+# Adding prediction columns for PowerBI deployment 
+data_deploy = data1.copy()
+data_deploy['Predictions - Churn or Not'] = pred_rf
+data_deploy['Predictions - Probability to Churn'] = column(pred_prob_rf, 1)
+data_deploy['Predictions - Churn or Not WORD'] = 'Empty'
+data_deploy['Predictions - Churn or Not WORD'][data_deploy['Predictions - Churn or Not'] == 0] = 'Retention'
+data_deploy['Predictions - Churn or Not WORD'][data_deploy['Predictions - Churn or Not'] == 1] = 'Churn'
+data_deploy.head()
+```
 
 <a name="ModelDeploy"></a> 
 
