@@ -7,11 +7,11 @@
 [View Deployed Model in Power BI](https://app.powerbi.com/view?r=eyJrIjoiNDExYjQ0OTUtNWI5MC00OTQ5LWFlYmUtYjNkMzE1YzE2NmE0IiwidCI6IjYyZWE3MDM0LWI2ZGUtNDllZS1iZTE1LWNhZThlOWFiYzdjNiJ9&pageName=ReportSection)
 
 ## Table of Contents 
-[Resources](#resources)<br>
-[Data Collection](#DataCollection)<br>
-[Data Pre-processing](#DataPre-processing)<br>
-[Data Warehousing](#DataWarehousing)<br>
-[Exploratory data analysis](#EDA)<br>
+*   [Resources](#resources)<br>
+*   [Data Collection](#DataCollection)<br>
+*   [Data Pre-processing](#DataPre-processing)<br>
+*   [Data Warehousing](#DataWarehousing)<br>
+*   [Exploratory data analysis](#EDA)<br>
 [Data Visualisation & Analytics](#Dataviz)<br>
 [Business Intelligence](#Busintelli)<br>
 [Feature Engineering](#FeatEng)<br>
@@ -93,7 +93,7 @@ data.columns = data.columns.str.replace(' ','_')
 ## [Data Warehousing](Code/P2_Code.ipynb)
 I warehouse all data in a Postgre database for later use and reference.
 
-*   ETL in python to SQL Server Database.
+*   ETL in python to PostgreSQL Database.
 *   Formatted tablename to SQL compatibility. 
 
 ```python 
