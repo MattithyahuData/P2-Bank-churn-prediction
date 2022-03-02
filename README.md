@@ -26,6 +26,7 @@
 *   [Looking Ahead](#Lookahead)<br>
 *   [Questions & Contact me](#Questions)<br>
 
+<a name="Resources"></a>  
          
 ## Resources Used
 **Python 3, PostgreSQL, Power BI** 
