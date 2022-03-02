@@ -1,5 +1,5 @@
 # 🏦 Bank Churn Analysis: Project Overview  
-* End to end project reasearching the effects customer attributes have on the churn of a bank customer and predicting those customers that may churn.
+* End to end project researching the effects customer attributes have on the churn of a bank customer and predicting those customers that may churn.
 * Optimised Logistic Regression, KNN, SVC, Decision Tree, and Random Forest Classifiers using GridsearchCV to reach the best model. 
 * Built a stakeholder facing visual deployment of model to predict churn of new customers 
 * Deployed Model in Power BI for Business Intelligence analysis 
@@ -19,7 +19,7 @@
 *   [Model performance](#ModelPerf)<br>
 *   [Model Optimisation](#ModelOpt)<br>
 *   [Model Evaluation](#ModelEval)<br>
-*   [Model Productionisation](#ModelProd)<br>
+*   [Model Productionising](#ModelProd)<br>
 *   [Deployment](#ModelDeploy)<br>
 *   [Project Management (Agile | Scrum)](#Prjmanage)<br>
 *   [Project Evaluation](#PrjEval)<br>
@@ -79,7 +79,7 @@ data.info()
 ```
 <br>
 
-*   Some programming lanaguages can be case sensitive like python and C++ for example, so using lower case letters for variable names allows for straightforward use of data in different programming languages.
+*   Some programming languages can be case sensitive like python and C++ for example, so using lower case letters for variable names allows for straightforward use of data in different programming languages.
 
 ```python
 # (SQL standard) Formatting column headers by removing potential capital letters and spaces in column headers 
@@ -87,14 +87,13 @@ data.columns = data.columns.str.lower()
 data.columns = data.columns.str.replace(' ','_')
 ```
 
-
 <a name="DataWarehousing"></a>
 
 ## [Data Warehousing](Code/P2_Code.ipynb)
 I warehouse all data in a Postgre database for later use and reference.
 
 *   ETL in python to PostgreSQL Database.
-*   Formatted tablename to SQL compatibility. 
+*   Formatted table names to SQL compatibility. 
 
 ```python 
 # Function to warehouse data in a Postgre database 
@@ -124,13 +123,12 @@ def store_data(data,tablename):
 store_data(data,"P2 Bank Churn Prediction")
 ```
 
-
 <a name="EDA"></a>  
 
 ## [Exploratory data analysis](Code/P2_Code.ipynb) 
 I looked at the distributions of the data and the value counts for the various categorical variables that would be fed into the model. Below are a few highlights from the analysis.
-*   20.37% of customers have churned - Distrubution of features and their effects on churning - Some features have outliers, visualising this allows for greater clarifty on the extent. 
-* As this is a binary classification use case, I set my colour pallette to take red and green. Red for the 'bad' outcome and green for the bettwer outcome. Of course this can be subjective based on the person setting the colours. 
+*   20.37% of customers have churned - Distribution of features and their effects on churning - Some features have outliers, visualising this allows for greater clarity on the extent. 
+* As this is a binary classification use case, I set my colour palette to take red and green. Red for the 'bad' outcome and green for the better outcome. Of course, this can be subjective based on the person setting the colours. 
 
 ```python
 # Setting my custom color palette
@@ -141,7 +139,7 @@ sns.set_palette(sns.color_palette(colors))
 <img src="images/independentfeatures_distrib.png" />
 
 *   The box plots show those features with outliers. Those features are 'creditscore', 'age', 'tenure', 'balance', 'numofproducts', 'estimatedsalary'. 
-*   Becasue of the outliers the features will need to be scaled before modelling. 
+*   Because of the outliers the features will need to be scaled before modelling. 
 <img src="images/boxplots.png" />
 
 *   The features are very correlated generally. 
@@ -152,29 +150,27 @@ sns.set_palette(sns.color_palette(colors))
 ## [Data Visualisation & Analytics](https://app.powerbi.com/view?r=eyJrIjoiNDExYjQ0OTUtNWI5MC00OTQ5LWFlYmUtYjNkMzE1YzE2NmE0IiwidCI6IjYyZWE3MDM0LWI2ZGUtNDllZS1iZTE1LWNhZThlOWFiYzdjNiJ9&pageName=ReportSection)
 [View Interactive Dashboard](https://app.powerbi.com/view?r=eyJrIjoiNDExYjQ0OTUtNWI5MC00OTQ5LWFlYmUtYjNkMzE1YzE2NmE0IiwidCI6IjYyZWE3MDM0LWI2ZGUtNDllZS1iZTE1LWNhZThlOWFiYzdjNiJ9&pageName=ReportSection)
 *   I created an interactive dashboard to deploy the machine learning model to benefit the business.
-*   I visualised various key features and hihglighted their overall correlation to a customers churn. 
-
+*   I visualised various key features and highlighted their overall correlation to a customers churn. 
 
 <!-- Dashboard  -->
 
 <!-- <iframe title="P2Dashboard" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiNDExYjQ0OTUtNWI5MC00OTQ5LWFlYmUtYjNkMzE1YzE2NmE0IiwidCI6IjYyZWE3MDM0LWI2ZGUtNDllZS1iZTE1LWNhZThlOWFiYzdjNiJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe> -->
 
-
 <a name="Busintelli"></a>  
 
 ## Business Intelligence
-On Page 2 of the interactive dashboard I have provided the stake holders with the new customer names and the customers that are likely to churn due to their characteristics.
+On Page 2 of the interactive dashboard, I have provided the stake holders with the new customer names and the customers that are likely to churn due to their characteristics.
 
 *   These customers can be offered subsidised deals and incentives to keep them on
 *   Greater engagement with customers could keep some customers on board 
 *   Providing quality customer service can also provide customers with long term value and appreciation for the business
 *   The complaints team should pay particular attention to complaints from customers who are predicted to churn.
-- 96% of unhappy customers dont complain  and 91% of those will simply leave and never come back?
+- 96% of unhappy customers don’t complain and 91% of those will simply leave and never come back?
 
 <a name="FeatEng"></a>  
 
 ## [Feature Engineering](Code/P2_Code.ipynb)   
-I transformed the categorical variable(s) 'geography' and 'gender' into dummy variables. I also split the data into train and tests sets with a test size of 20%. Shuffling the data is important for randomness as the data can come in clusters of outcome values which would affect the output. Stratifying is used so y_test can reflect y_train.Resulting in a more realistic simulation of how the model is going to perform on new data. 
+I transformed the categorical variable(s) 'geography' and 'gender' into dummy variables. I also split the data into train and tests sets with a test size of 20%. Shuffling the data is important for randomness as the data can come in clusters of outcome values which would affect the output. Stratifying is used so y_test can reflect y_train. Resulting in a more realistic simulation of how the model is going to perform on new data. 
 *   One Hot encoding to encode values
 *   Using RobustScaler to scale  
 
@@ -225,7 +221,7 @@ classifiers = [
 ```
 *   Cross validation used to get range of accuracy results when randomising the formation of the training datasets 
 *    To cater for imbalanced class distributions in classifications use cases StratifiedKFold is used to ensure the test set reflects the distribution of the train set.
-This is similar to "stratify=y" in the train_test_split call
+This is like "stratify=y" in the train_test_split call
 
 ```python
 # Cross validate model with Kfold stratified cross validation
@@ -249,7 +245,6 @@ g.set_xlabel("Mean Accuracy")
 g = g.set_title("Cross validation scores")
 ```
 
-
 <img src="images/Crossvalidation.png" />
 
 <a name="ModelPerf"></a> 
@@ -262,7 +257,7 @@ The Random Forest Classifier model outperformed the other approaches on the test
 
 ## [Model Optimisation](Code/P2_Code.ipynb)
 In this step, I used GridsearchCV to find the best parameters to optimise the performance of the model.
-However in this instance the performance of the model was reduced, so I stuck with the intial paramaters. 
+However, in this instance the performance of the model was reduced, so I stuck with the initial parameters. 
 
 *   **Random Forest Classifier** : Accuracy = 86.8% | MSE = 0.1295 | RMSE = 0.36 (2dp)
 *   Hyperparameter tuning is effective in finding the best parameters to produce the highest model accuracy. 
@@ -310,14 +305,14 @@ rf_best.fit(X_train,y_train)
 
 <a name="ModelProd"></a> 
 
-## [Model Productionisation](Code/P2_Code.ipynb)
+## [Model Productionising](Code/P2_Vis_prep.ipynb)
 *   I used the pickle library to export the model. 
 ```python
 # Dump model into pickle file
 pickle.dump(model1, open('.././svc_diabetes.pkl', 'wb'))
 ```  
 
-*   I then imported the model into a seperate notebook to apply it to an 'unseen' dataset to find the predictions and the probability of those predictions. 
+*   I then imported the model into a separate notebook to apply it to an 'unseen' dataset to find the predictions and the probability of those predictions. 
 *   String fields created for deployment readability aspect. 
 ```python
 # Predicting based on orginal data 
@@ -337,9 +332,9 @@ data_deploy.head()
 <a name="ModelDeploy"></a> 
 
 ## [Deployment](https://app.powerbi.com/view?r=eyJrIjoiNDExYjQ0OTUtNWI5MC00OTQ5LWFlYmUtYjNkMzE1YzE2NmE0IiwidCI6IjYyZWE3MDM0LWI2ZGUtNDllZS1iZTE1LWNhZThlOWFiYzdjNiJ9&pageName=ReportSection)
-I deployed this model in Microsoft Power BI for business intellignece use. [View visualisation code prep](Code/P2_Vis_prep.ipynb)
+I deployed this model in Microsoft Power BI for business intelligence use. [View visualisation code prep](Code/P2_Vis_prep.ipynb)
 *   I exported the model as a .pkl file and applied it to the unseen data set to get churn predictions and probability predictions.
-*   I visualised this in Power BI and using conditional formatting to highlight those new customer sthat are more likely to curn based on the models prediction. 
+*   I visualised this in Power BI and using conditional formatting to highlight those new customer that are more likely to churn based on the models prediction. 
 
 <a name="Prjmanage"></a> 
 
@@ -373,10 +368,6 @@ I deployed this model in Microsoft Power BI for business intellignece use. [View
 For questions, feedback, and contribution requests contact me
 * ### [Click here to email me](mailto:contactmattithyahu@gmail.com) 
 * ### [See more projects here](https://mattithyahudata.github.io/)
-
-
-
-
 
 
 
