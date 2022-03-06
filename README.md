@@ -196,7 +196,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,  test_size=0.20, rando
 # Viewing shape of train / test data
 print(X_train.shape)
 print(X_test.shape)
-
 ```
 
 <a name="ModelBuild"></a> 
